@@ -1,4 +1,28 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Portfolio
+
+## Requirements
+
+### Node
+
+---
+
+## Install
+
+## Start & watch
+
+## Simple build for production
+
+## Update sources
+
+---
+
+## Languages & tools
+
+### HTML
+
+### JavaScript
+
+### CSS
 
 ## Available Scripts
 
