@@ -16,8 +16,12 @@
     "typescript": "^3.7.5"
   },
   "scripts": {
+    "start:tw": "postcss ./src/css/tailwind.css -o ./src/css/styles.css -w",
+    "build:tw": "postcss ./src/css/tailwind.css -o ./src/css/styles.css --env production",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "prestart": "npm run start:tw",
+    "prebuild": "npm run build:tw",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -35,5 +39,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.1.2",
+    "autoprefixer": "^9.7.6",
+    "postcss-cli": "^7.1.0",
+    "tailwindcss": "^1.2.0"
   }
 }
