@@ -1,0 +1,19 @@
+
+
+.Typist .Cursor {
+    display: inline-block; 
+    color: rgb(137, 241, 127);
+}
+    .Typist .Cursor--blinking {
+      opacity: 1;
+      animation: blink 1s linear infinite; }
+  
+  @keyframes blink {
+    0% {
+      opacity: 0; }
+    25% {
+      opacity: 1; }
+    75% {
+        opacity: 1; }
+    100% {
+        opacity: 0; } }

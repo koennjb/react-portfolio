@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Typist, { TypistProps } from 'react-typist';
+import '../css/typist.css';
 
 interface Props extends TypistProps {
     children?: any;
