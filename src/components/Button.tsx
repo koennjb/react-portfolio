@@ -1,6 +1,6 @@
 import React from 'react';
 interface IProps extends React.HTMLAttributes<HTMLButtonElement> {
-    children?: React.ReactNode[];
+    children?: any;
 }
 
 const Button: React.FC<IProps> = (props: IProps) => {
@@ -9,7 +9,7 @@ const Button: React.FC<IProps> = (props: IProps) => {
     const { children, ...buttonProps } = props;
     return (
         <button
-            className="px-2 py-1 rounded-lg bg-green-400 text-green-800 text-xl font-light uppercase shadow-md hover:shadow-lg"
+            className="px-2 py-1 rounded-lg focus:outline-none bg-green-400 text-green-800 text-xl font-light uppercase shadow-md hover:shadow-lg"
             {...buttonProps}
         >
             {children}

@@ -10,14 +10,14 @@
     "@types/node": "^12.12.35",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
+    "framer-motion": "^1.10.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
-    "react-spring": "^8.0.27",
     "typescript": "^3.7.5"
   },
   "scripts": {
-    "start:tw": "postcss ./src/css/tailwind.css -o ./src/css/styles.css -w",
+    "start:tw": "postcss ./src/css/tailwind.css -o ./src/css/styles.css",
     "build:tw": "postcss ./src/css/tailwind.css -o ./src/css/styles.css --env production",
     "start": "react-scripts start",
     "build": "react-scripts build",
