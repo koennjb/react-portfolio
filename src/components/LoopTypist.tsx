@@ -4,25 +4,34 @@ import '../css/typist.css';
 
 interface Props extends TypistProps {
     children?: any;
+    timeout?: number;
 }
+
+const defaultProps: Props = {
+    timeout: 1000,
+};
+
 const LoopTypist: React.FC<TypistProps> = (props: Props) => {
-    const [done, setDone] = useState(false);
+    const [typing, setTyping] = useState<boolean>(true);
     const { children } = props;
 
     useEffect(() => {
-        if (done) {
-            setTimeout(() => setDone(false), 250);
-        }
-    });
+        setTimeout(() => setTyping(true), props.timeout);
+    }, [typing]);
 
-    if (done) {
-        return <p>&nbsp;</p>;
-    }
-
-    return (
-        <Typist {...props} onTypingDone={(): void => setDone(true)}>
+    return typing ? (
+        <Typist {...props} onTypingDone={(): void => setTyping(false)}>
             {children}
         </Typist>
+    ) : (
+        <div className="Typist">
+            <span {...props} className={props.className + `${props.cursor?.blink ? ' Cursor--blinking' : ' Cursor'}`}>
+                {props.cursor?.element}
+            </span>
+        </div>
     );
 };
+
+LoopTypist.defaultProps = defaultProps;
+
 export default LoopTypist;
