@@ -1,0 +1,25 @@
+.portfolio-nav-active {
+    transition: all 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    transform: none;
+    opacity: 1;
+}
+
+.portfolio-nav-inactive {
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    transform: translate(0, -50%);
+}
+
+.mobile-active {
+    transition: all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-inactive {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    transform: translate(0, -50%);
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import Menu from './components/shared/Menu';
+import Menu from './components/shared/Menu/Menu';
 import Typist from 'react-typist';
 import LoopTypist from './components/LoopTypist';
 
@@ -7,7 +7,7 @@ const App: React.FC = () => {
     return (
         <div>
             <Menu />
-            <div className="p-10">
+            <div className="p-10" style={{ height: '1200px' }}>
                 <LoopTypist
                     avgTypingDelay={100}
                     stdTypingDelay={30}
