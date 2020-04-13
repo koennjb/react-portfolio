@@ -17,6 +17,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "react-typist": "^2.0.5",
+    "react-undraw": "^1.14.0",
     "react-use-scroll-position": "^2.0.0",
     "typescript": "^3.7.5"
   },
@@ -27,7 +28,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "prestart": "npm run start:tw",
-    "prebuild": "npm run build:tw",
+    "prebuild": "react-undraw-cli && npm run build:tw",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",

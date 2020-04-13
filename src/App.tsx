@@ -2,6 +2,7 @@ import React from 'react';
 import Menu from './components/shared/Menu/Menu';
 import Typist from 'react-typist';
 import LoopTypist from './components/LoopTypist';
+import Undraw, { UndrawProgramming } from 'react-undraw';
 
 const App: React.FC = () => {
     return (
@@ -21,6 +22,7 @@ const App: React.FC = () => {
                     <span>Hello, Welcome</span>
                     <Typist.Backspace count={14} delay={1000} />
                 </LoopTypist>
+                <UndrawProgramming primaryColor="#f" height="100px" />
             </div>
         </div>
     );
