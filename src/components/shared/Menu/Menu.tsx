@@ -18,7 +18,6 @@ const Menu: React.FC<Props> = (props: Props) => {
 
     useScrollPosition(
         ({ prevPos, currPos }: EffectParams) => {
-            console.log(`Prev: ${prevPos.y} curr: ${currPos.y}`);
             const isShow = prevPos.y >= currPos.y || currPos.y <= 10;
             if (isShow !== isVisible) setIsVisible(isShow);
         },
