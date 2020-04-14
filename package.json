@@ -17,22 +17,22 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "react-typist": "^2.0.5",
-    "react-undraw": "^1.14.0",
-    "react-use-scroll-position": "^2.0.0",
+    "react-undraw": "^2.0.0-beta.1",
     "typescript": "^3.7.5"
   },
   "scripts": {
     "start:tww": "postcss ./src/css/tailwind.css -o ./src/css/styles.css -w",
     "start:tw": "postcss ./src/css/tailwind.css -o ./src/css/styles.css",
     "build:tw": "postcss ./src/css/tailwind.css -o ./src/css/styles.css --env production",
-    "start": "react-scripts start",
+    "start": "react-undraw-cli && react-scripts start",
     "build": "react-scripts build",
     "prestart": "npm run start:tw",
-    "prebuild": "react-undraw-cli && npm run build:tw",
+    "prebuild": "npm run build:tw",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "analyze": "source-map-explorer 'build/static/js/*.js'"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -61,6 +61,7 @@
     "gh-pages": "^2.2.0",
     "postcss-cli": "^7.1.0",
     "prettier": "^2.0.4",
+    "source-map-explorer": "^2.4.2",
     "tailwindcss": "^1.2.0"
   }
 }

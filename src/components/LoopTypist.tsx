@@ -24,10 +24,8 @@ const LoopTypist: React.FC<TypistProps> = (props: Props) => {
             {children}
         </Typist>
     ) : (
-        <div className="Typist">
-            <span {...props} className={props.className + `${props.cursor?.blink ? ' Cursor--blinking' : ' Cursor'}`}>
-                {props.cursor?.element}
-            </span>
+        <div className={`Typist ${props.className}`}>
+            <span className={` Cursor ${props.cursor?.blink && ' Cursor--blinking'}`}>{props.cursor?.element}</span>
         </div>
     );
 };
