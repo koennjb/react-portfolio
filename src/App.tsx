@@ -2,8 +2,6 @@ import React, { CSSProperties } from 'react';
 import Menu from './components/shared/Menu/Menu';
 import Typist from 'react-typist';
 import LoopTypist from './components/LoopTypist';
-import { ReactComponent as PlusPattern } from './img/plus.svg';
-import plus from './img/plus.svg';
 import profile from './img/Profile.png';
 import './css/App.css';
 
