@@ -5,11 +5,11 @@ export default interface MenuLink {
 
 export const MENU_LINKS: MenuLink[] = [
     {
-        label: "Home",
-        url: "/",
+        label: 'Home',
+        url: '/',
     },
     {
-        label: "About",
-        url: "/about",
-    }
-]
+        label: 'About',
+        url: '/about',
+    },
+];
