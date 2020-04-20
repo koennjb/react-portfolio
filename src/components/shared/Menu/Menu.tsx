@@ -45,7 +45,7 @@ const Menu: React.FC<Props> = (props: Props) => {
             <nav
                 className={`${
                     isVisible ? 'portfolio-nav-active' : 'portfolio-nav-inactive'
-                } bg-transparent sm:flex items-center justify-between px-10 py-5 sticky top-0 w-full`}>
+                } bg-white z-10 sm:flex items-center justify-between px-10 py-5 sticky top-0 w-full`}>
                 <div className="flex items-center justify-between">
                     {/* Left */}
                     <div>
