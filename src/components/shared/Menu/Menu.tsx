@@ -6,6 +6,7 @@ import { useScrollPosition, EffectParams } from '../../../hooks/useScrollPositio
 import { ModalContext } from '../../../context/modals/ModalContext';
 import LoginModal from '../../../context/modals/LoginModal';
 import { UserContext } from '../../../context/auth/UserContext';
+import SignOutModal from '../../../context/modals/SignOutModal';
 
 interface Props {
     brand?: React.ReactNode;
@@ -44,14 +45,31 @@ const Menu: React.FC<Props> = (props: Props) => {
                     </a>
                 );
             });
-            result.push(
+            const authButton: React.ReactElement = user ? (
+                <button
+                    key="sign-out-menu"
+                    className={aClass}
+                    onClick={() =>
+                        setModal!(
+                            <SignOutModal
+                                onConfirm={() => setModal!(undefined)}
+                                onClose={() => {
+                                    setModal!(undefined);
+                                }}
+                            />,
+                        )
+                    }>
+                    {user ? 'Sign Out' : 'Login'}
+                </button>
+            ) : (
                 <button
                     key="login"
                     className={aClass}
                     onClick={() => setModal!(<LoginModal onClose={() => setModal!(undefined)} />)}>
                     {user ? 'Sign Out' : 'Login'}
-                </button>,
+                </button>
             );
+            result.push(authButton);
             return result;
         };
 
