@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect, MutableRefObject, DependencyList, useEffect, useState } from 'react';
+import { useLayoutEffect, MutableRefObject, DependencyList, useState } from 'react';
 
 const isBrowser = typeof window !== `undefined`;
 
@@ -48,5 +48,5 @@ export function useScrollPosition(effect: (value: EffectParams) => void, deps: D
         window.addEventListener('scroll', handleScroll);
 
         return (): void => window.removeEventListener('scroll', handleScroll);
-    }, [deps]);
+    }, [deps, effect, position, wait]);
 }

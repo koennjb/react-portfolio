@@ -17,7 +17,7 @@ const LoopTypist: React.FC<TypistProps> = (props: Props) => {
 
     useEffect(() => {
         setTimeout(() => setTyping(true), props.timeout);
-    }, [typing]);
+    }, [typing, props.timeout]);
 
     return typing ? (
         <Typist {...props} onTypingDone={(): void => setTyping(false)}>

@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import React from 'react';
 import Menu from './components/shared/Menu/Menu';
 import Typist from 'react-typist';
 import LoopTypist from './components/LoopTypist';
@@ -7,6 +7,10 @@ import './css/App.css';
 import { INTRO, INTRO_SIGNATURE } from './constants/strings';
 import ProjectList from './components/projects/ProjectList';
 import { PROJECTS } from './constants/TestData';
+import FirebaseAuth from './firebase/FirebaseAuth';
+import { CtxProvider } from './context/AuthenticationContext';
+import { ModalProvider } from './context/modals/ModalProvider';
+import ModalManager from './context/modals/ModalManager';
 
 const IntroSection: React.FC = () => (
     <div className="grid" id="Main">
@@ -30,7 +34,7 @@ const IntroSection: React.FC = () => (
             <Typist.Backspace count={14} delay={1000} />
         </LoopTypist>
         <div className="profile-pic-wrapper row-start-2 sm:col-start-2 sm:col-end-4 sm:row-start-1 sm:row-end-4">
-            <img src={profile} style={{}} className="profile-pic" />
+            <img src={profile} style={{}} className="profile-pic" alt="Koenn Becker" />
         </div>
 
         <div className="col-start-1 row-start-3 row-end-4 sm:col-start-4 sm:col-end-5 sm:row-start-1 sm:row-end-4 lg:mt-8 md:mt-0">
@@ -46,13 +50,18 @@ const IntroSection: React.FC = () => (
 
 const App: React.FC = () => {
     return (
-        <div>
-            <Menu />
-            <div className="mx-10">
-                <IntroSection />
-                <ProjectList projects={PROJECTS} />
-            </div>
-        </div>
+        <CtxProvider value={new FirebaseAuth()}>
+            <ModalProvider>
+                <ModalManager />
+                <div>
+                    <Menu />
+                    <div className="mx-10">
+                        <IntroSection />
+                        <ProjectList projects={PROJECTS} />
+                    </div>
+                </div>
+            </ModalProvider>
+        </CtxProvider>
     );
 };
 

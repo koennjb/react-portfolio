@@ -13,10 +13,10 @@ const ProjectItem: React.FC<Props> = (props: Props) => {
             <p>{props.project.company}</p>
             {props.project.url ? (
                 <a href={props.project.url}>
-                    <img src={props.project.image} />
+                    <img src={props.project.image} alt={props.project.name} />
                 </a>
             ) : (
-                <img src={props.project.image} />
+                <img src={props.project.image} alt={props.project.name} />
             )}
             <p>{props.project.shortDescription}</p>
             <ul>
