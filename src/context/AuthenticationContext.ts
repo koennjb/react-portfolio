@@ -1,5 +1,5 @@
 import 'firebase/auth';
+import { createCtx } from './helper';
 import FirebaseAuth from '../firebase/FirebaseAuth';
-import { makeContext } from './helper';
 
-export const [useCtx, CtxConsumer, CtxProvider] = makeContext<FirebaseAuth>();
+export const [useFirebase, FireaseContextProvider] = createCtx<FirebaseAuth>();

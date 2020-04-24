@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import './css/styles.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { FireaseContextProvider } from './context/AuthenticationContext';
+import FirebaseAuth from './firebase/FirebaseAuth';
 
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <FireaseContextProvider value={new FirebaseAuth()}>
+            <App />
+        </FireaseContextProvider>
     </React.StrictMode>,
     document.getElementById('root'),
 );

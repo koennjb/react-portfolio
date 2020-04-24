@@ -8,6 +8,8 @@ export interface IModalProps {
     confirmText?: string;
     cancelText?: string;
     onConfirm?: () => void;
+    error?: string;
+    success?: string;
 }
 
 const Modal: React.FunctionComponent<IModalProps> = (props: IModalProps) => {
@@ -31,7 +33,8 @@ const Modal: React.FunctionComponent<IModalProps> = (props: IModalProps) => {
                             </svg>
                         </div>
                     </div>
-
+                    {props.error && <p className="text-red-400">{props.error}</p>}
+                    {props.success && <p className="text-green-400">{props.success}</p>}
                     {props.children}
 
                     <div className="flex justify-end pt-2">

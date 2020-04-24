@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Menu from './components/shared/Menu/Menu';
 import Typist from 'react-typist';
 import LoopTypist from './components/LoopTypist';
@@ -7,10 +7,12 @@ import './css/App.css';
 import { INTRO, INTRO_SIGNATURE } from './constants/strings';
 import ProjectList from './components/projects/ProjectList';
 import { PROJECTS } from './constants/TestData';
-import FirebaseAuth from './firebase/FirebaseAuth';
-import { CtxProvider } from './context/AuthenticationContext';
 import { ModalProvider } from './context/modals/ModalProvider';
 import ModalManager from './context/modals/ModalManager';
+import { User } from 'firebase/app';
+import 'firebase/auth';
+import { useFirebase } from './context/AuthenticationContext';
+import { UserContext } from './context/auth/UserContext';
 
 const IntroSection: React.FC = () => (
     <div className="grid" id="Main">
@@ -49,8 +51,18 @@ const IntroSection: React.FC = () => (
 );
 
 const App: React.FC = () => {
+    const [user, setUser] = useState<User | undefined>(undefined);
+    const fb = useFirebase();
+    useEffect(() => {
+        const listener = fb.auth.onAuthStateChanged((authUser) => {
+            authUser ? setUser(authUser) : setUser(undefined);
+        });
+        return function cleanup(): void {
+            return listener!();
+        };
+    });
     return (
-        <CtxProvider value={new FirebaseAuth()}>
+        <UserContext.Provider value={user}>
             <ModalProvider>
                 <ModalManager />
                 <div>
@@ -61,7 +73,7 @@ const App: React.FC = () => {
                     </div>
                 </div>
             </ModalProvider>
-        </CtxProvider>
+        </UserContext.Provider>
     );
 };
 
