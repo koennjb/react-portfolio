@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import './css/styles.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { FireaseContextProvider } from './context/AuthenticationContext';
 import FirebaseAuth from './firebase/FirebaseAuth';
+import { FireaseContextProvider } from './context/auth/AuthenticationContext';
 
 ReactDOM.render(
     <React.StrictMode>

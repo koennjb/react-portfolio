@@ -1,52 +1,39 @@
 import React, { useState } from 'react';
 import Modal, { IModalProps } from './Modal';
-import { useFirebase } from '../AuthenticationContext';
+import { useFirebase } from '../auth/AuthenticationContext';
+import LoginForm from '../../components/forms/LoginForm';
 
 interface Props extends IModalProps {
     onLogin?: (email: string, password: string) => void;
+    onClose: () => void;
 }
 
 const LoginModal: React.FC<Props> = (props: Props) => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [success, setSuccess] = useState('');
+    const [loading, setLoading] = useState(false);
     const firebase = useFirebase();
 
-    const onEmailChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        setEmail(e.target.value);
-    };
-
-    const onPasswordChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        setPassword(e.target.value);
-    };
-
-    const onSubmit = (): void => {
+    const onSubmit = (email: string, password: string): void => {
         console.log('LoginModel onSubmit');
+        setLoading(true);
         firebase
             .signIn(email, password)
-            .then((user) => {
-                if (user) {
-                    setSuccess(`User logged in! ${user.user?.email}`);
-                } else {
-                    setError('Some other error happened, did not log in');
-                }
+            .then(() => {
+                setLoading(false);
+                props.onClose();
             })
             .catch((error: Error) => {
+                setLoading(false);
                 setError(error.message);
             });
     };
 
     return (
-        <Modal
-            onConfirm={onSubmit}
-            confirmText="Login "
-            title="Login"
-            onClose={props.onClose}
-            success={success}
-            error={error}>
-            <input type="email" value={email} placeholder="Email" onChange={onEmailChange} />
-            <input type="password" value={password} placeholder="Password" onChange={onPasswordChange} />
+        <Modal confirmText="Login " title="Login" onClose={props.onClose}>
+            {error && <p className="text-red-400">{error}</p>}
+            <LoginForm onSubmit={onSubmit} loading={loading} onCancel={props.onClose} />
+            {/* <input type="email" value={email} placeholder="Email" onChange={onEmailChange} />
+            <input type="password" value={password} placeholder="Password" onChange={onPasswordChange} /> */}
         </Modal>
     );
 };

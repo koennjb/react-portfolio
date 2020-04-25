@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import FirebaseAuth from '../../firebase/FirebaseAuth';
-import { FireaseContextProvider } from '../AuthenticationContext';
+import { FireaseContextProvider } from './AuthenticationContext';
 interface Props {
     children: React.ReactNode;
 }

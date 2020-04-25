@@ -6,7 +6,6 @@ export interface IModalProps {
     title?: string;
     confirmText?: string;
     cancelText?: string;
-    onConfirm?: () => void;
     error?: string;
     success?: string;
 }
@@ -16,7 +15,7 @@ const Modal: React.FunctionComponent<IModalProps> = (props: IModalProps) => {
         <div className="z-40 pointer-events-auto modal fixed w-full h-full top-0 left-0 flex items-center justify-center">
             <div className="modal-overlay absolute w-full h-full bg-gray-900 opacity-50" onClick={props.onClose}></div>
 
-            <div className=" z-50 modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+            <div className=" z-50 modal-container bg-white w-8/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
                 {/* <!-- Add margin if you want to see some of the overlay behind the modal--> */}
                 <div className="modal-content py-4 text-left px-6">
                     <div className="flex justify-between items-center pb-3">
@@ -35,22 +34,6 @@ const Modal: React.FunctionComponent<IModalProps> = (props: IModalProps) => {
                     {props.error && <p className="text-red-400">{props.error}</p>}
                     {props.success && <p className="text-green-400">{props.success}</p>}
                     {props.children}
-
-                    <div className="flex justify-end pt-2">
-                        <button
-                            className="px-4 bg-transparent py-2 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2"
-                            onClick={props.onClose}>
-                            {props.cancelText || 'Cancel'}
-                        </button>
-
-                        {props.onConfirm && (
-                            <button
-                                onClick={props.onConfirm}
-                                className="px-4 bg-indigo-500  py-2 rounded-lg text-white hover:bg-indigo-400">
-                                {props.confirmText || 'Confirm'}
-                            </button>
-                        )}
-                    </div>
                 </div>
             </div>
         </div>

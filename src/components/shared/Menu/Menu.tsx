@@ -52,7 +52,6 @@ const Menu: React.FC<Props> = (props: Props) => {
                     onClick={(): void =>
                         setModal?.(
                             <SignOutModal
-                                onConfirm={(): void => setModal(undefined)}
                                 onClose={(): void => {
                                     setModal(undefined);
                                 }}

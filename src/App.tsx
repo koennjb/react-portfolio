@@ -11,8 +11,8 @@ import { ModalProvider } from './context/modals/ModalProvider';
 import ModalManager from './context/modals/ModalManager';
 import { User } from 'firebase/app';
 import 'firebase/auth';
-import { useFirebase } from './context/AuthenticationContext';
 import { UserContext } from './context/auth/UserContext';
+import { useFirebase } from './context/auth/AuthenticationContext';
 
 const IntroSection: React.FC = () => (
     <div className="grid" id="Main">
@@ -58,7 +58,7 @@ const App: React.FC = () => {
             authUser ? setUser(authUser) : setUser(undefined);
         });
         return function cleanup(): void {
-            return listener!();
+            return listener?.();
         };
     });
     return (
