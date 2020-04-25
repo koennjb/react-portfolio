@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import './Modal.css';
 
 export interface IModalProps {
     children?: ReactNode;
@@ -39,7 +38,7 @@ const Modal: React.FunctionComponent<IModalProps> = (props: IModalProps) => {
 
                     <div className="flex justify-end pt-2">
                         <button
-                            className="px-4 bg-transparent p-3 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2"
+                            className="px-4 bg-transparent py-2 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2"
                             onClick={props.onClose}>
                             {props.cancelText || 'Cancel'}
                         </button>
@@ -47,7 +46,7 @@ const Modal: React.FunctionComponent<IModalProps> = (props: IModalProps) => {
                         {props.onConfirm && (
                             <button
                                 onClick={props.onConfirm}
-                                className="px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400">
+                                className="px-4 bg-indigo-500  py-2 rounded-lg text-white hover:bg-indigo-400">
                                 {props.confirmText || 'Confirm'}
                             </button>
                         )}

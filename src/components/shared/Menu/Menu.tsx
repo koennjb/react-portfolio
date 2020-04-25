@@ -49,12 +49,12 @@ const Menu: React.FC<Props> = (props: Props) => {
                 <button
                     key="sign-out-menu"
                     className={aClass}
-                    onClick={() =>
-                        setModal!(
+                    onClick={(): void =>
+                        setModal?.(
                             <SignOutModal
-                                onConfirm={() => setModal!(undefined)}
-                                onClose={() => {
-                                    setModal!(undefined);
+                                onConfirm={(): void => setModal(undefined)}
+                                onClose={(): void => {
+                                    setModal(undefined);
                                 }}
                             />,
                         )
@@ -65,7 +65,7 @@ const Menu: React.FC<Props> = (props: Props) => {
                 <button
                     key="login"
                     className={aClass}
-                    onClick={() => setModal!(<LoginModal onClose={() => setModal!(undefined)} />)}>
+                    onClick={() => setModal?.(<LoginModal onClose={(): void => setModal(undefined)} />)}>
                     {user ? 'Sign Out' : 'Login'}
                 </button>
             );
