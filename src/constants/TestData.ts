@@ -1,5 +1,5 @@
 import { Project } from '../data/Project';
-import IMG from '../img/Profile.png';
+import IMG from '../img/Profile.webp';
 
 export const PROJECTS: Project[] = [
     {

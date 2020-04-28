@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Menu from './components/shared/Menu/Menu';
 import Typist from 'react-typist';
 import LoopTypist from './components/LoopTypist';
-import profile from './img/Profile.png';
-import loading from './img/loading.gif';
+import profile from './img/Profile.webp';
 import './css/App.css';
 import { INTRO, INTRO_SIGNATURE } from './constants/strings';
 import ProjectList from './components/projects/ProjectList';
@@ -14,7 +13,6 @@ import { User } from 'firebase/app';
 import 'firebase/auth';
 import { UserContext } from './context/auth/UserContext';
 import { useFirebase } from './context/auth/AuthenticationContext';
-import Img from 'react-cool-img';
 
 const IntroSection: React.FC = () => (
     <div className="grid" id="Main">
@@ -38,7 +36,7 @@ const IntroSection: React.FC = () => (
             <Typist.Backspace count={14} delay={1000} />
         </LoopTypist>
         <div className="profile-pic-wrapper row-start-2 sm:col-start-2 sm:col-end-4 sm:row-start-1 sm:row-end-4">
-            <Img placeholder={loading} src={profile} className="profile-pic" alt="Koenn Becker" />
+            <img src={profile} className="profile-pic" alt="Koenn Becker" />
         </div>
 
         <div className="col-start-1 row-start-3 row-end-4 sm:col-start-4 sm:col-end-5 sm:row-start-1 sm:row-end-4 lg:mt-8 md:mt-0">
